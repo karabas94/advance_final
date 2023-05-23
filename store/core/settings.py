@@ -26,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authentication',
     'drf_spectacular',
+    'silk',
 
     'store',
 ]
@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -136,7 +138,6 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication'
     ]
 }
-
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Store API',
