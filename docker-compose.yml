@@ -8,11 +8,24 @@ services:
     env_file:
       - store.env
     expose:
-      - "5432:5432"
+      - 5432
     volumes:
       - store_db_volume:/var/lib/postgresql/data
     networks:
       - store_db_network
+
+  shop_db:
+    container_name: shop_db
+    image: postgres:latest
+    restart: always
+    env_file:
+      - shop.env
+    expose:
+      - 5432
+    volumes:
+      - shop_db_volume:/var/lib/postgresql/data
+    networks:
+      - shop_db_network
 
   store:
     container_name: store
@@ -37,8 +50,33 @@ services:
       timeout: 5s
       retries: 2
 
+  shop:
+    container_name: shop
+    build:
+      context: .
+      dockerfile: docker/shop/Dockerfile
+    env_file:
+      - shop.env
+    command: sh runserver.sh
+    volumes:
+      - ./shop:/app
+    ports:
+      - "8001:8000"
+    depends_on:
+      - shop_db
+    networks:
+      - shop_db_network
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://0.0.0.0:8000/admin/login/" ]
+      interval: 1m
+      timeout: 5s
+      retries: 2
+
 volumes:
   store_db_volume:
+  shop_db_volume:
 
 networks:
   store_db_network:
+  shop_db_network:
