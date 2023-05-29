@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'account',
+    'book',
+    'order',
+
 ]
 
 if DEBUG:
