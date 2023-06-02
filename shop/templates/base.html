@@ -39,6 +39,7 @@
                        aria-expanded="false">Profile</a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'account:profile' %}" class="dropdown-item">My profile</a></li>
+                        <li><a href="{% url 'order:cart_detail' %}" class="dropdown-item">My cart</a></li>
                         {% if user.is_staff %}
                             <li>
                                 <hr class="dropdown-divider">

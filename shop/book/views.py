@@ -8,9 +8,9 @@ class BookListView(generic.ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        title = self.request.GET.get('title')
-        if title:
-            queryset = queryset.filter(title__icontains=title)
+        name = self.request.GET.get('name')
+        if name:
+            queryset = queryset.filter(name__icontains=name)
         return queryset
 
 

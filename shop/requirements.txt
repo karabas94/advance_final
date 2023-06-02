@@ -12,11 +12,13 @@ Django==4.2.1
 django-celery-results==2.5.1
 django-debug-toolbar==4.1.0
 django-extensions==3.2.1
+django-shopping-cart==0.1
 flake8==6.0.0
 greenlet==2.0.2
 idna==3.4
 kombu==5.2.4
 mccabe==0.7.0
+Pillow==9.5.0
 prompt-toolkit==3.0.38
 psycopg==3.1.9
 pycodestyle==2.10.0

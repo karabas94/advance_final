@@ -3,8 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    name = models.CharField(max_length=255)
+    price = models.FloatField()
     quantity = models.IntegerField(null=False)
 
 

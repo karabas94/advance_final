@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ object.title }}
+    {{ object.name}}
 {% endblock %}
 
 {% block content %}
-    <h1>{{ object.title }}</h1>
+    <h1>{{ object.name }}</h1>
     <p>Price: {{ object.price }}</p>
     <p>Quantity: {{ object.quantity }}</p>
+    <p><button type="button" class="btn btn-warning"><a href="{% url 'order:cart_add' book.id %}" >Add to cart</a></button></p>
 {% endblock %}
