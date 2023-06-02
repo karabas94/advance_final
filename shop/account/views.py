@@ -15,7 +15,7 @@ User = get_user_model()
 class RegisterFormView(generic.FormView):
     template_name = 'account/register.html'
     form_class = RegisterForm
-    success_url = reverse_lazy("account:profile")
+    success_url = reverse_lazy("book:book_list")
 
     def form_valid(self, form):
         user = form.save()
@@ -34,7 +34,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("account:profile")
+                return redirect("book:book_list")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
@@ -46,7 +46,7 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("account:login")
+    return redirect("book:book_list")
 
 
 class UpdateProfile(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
