@@ -2,7 +2,8 @@ from django.db import models
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    name = models.CharField(max_length=255)
+    price = models.FloatField()
     quantity = models.IntegerField(null=False)
     id_in_store = models.IntegerField(unique=True)
+    image = models.ImageField(upload_to='products/', null=True, blank=True)

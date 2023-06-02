@@ -5,7 +5,7 @@ from store.models import Book, BookItem, Order, OrderItem
 class BookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Book
-        fields = ['url', 'id', 'title', 'price', 'quantity']
+        fields = ['url', 'id', 'name', 'price', 'quantity']
 
 
 class BookItemSerializer(serializers.HyperlinkedModelSerializer):

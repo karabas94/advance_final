@@ -47,8 +47,11 @@ INSTALLED_APPS = [
     'account',
     'book',
     'order',
+    'cart',
 
 ]
+
+CART_SESSION_ID = 'cart'
 
 if DEBUG:
     INSTALLED_APPS += [
