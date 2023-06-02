@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Books
+{% endblock %}
+
+{% block content %}
+    <form method="get">
+        <input type="text" name="title" placeholder="Enter book title">
+        <button type="submit">Filter</button>
+    </form>
+
+    <ul>
+        {% for book in object_list %}
+            <li>
+                <a href="{% url 'book:book_detail' book.pk %}">{{ book.title }}</a>
+            </li>
+        {% empty %}
+            <li>No books found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

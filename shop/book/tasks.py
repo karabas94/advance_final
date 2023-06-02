@@ -14,14 +14,14 @@ def book_synch():
                 defaults={
                     'title': book['title'],
                     'price': book['price'],
-                    'quantity': 1,
+                    'quantity': book['quantity'],
                 }
 
             )
             if not created:
                 data.title = book['title']
                 data.price = book['price']
-                data.quantity = 1
+                data.quantity = book['quantity']
                 data.save()
 
         if response['next']:
