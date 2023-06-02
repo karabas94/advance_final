@@ -153,7 +153,3 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
-
-
-# CELERY_RESULT_BACKEND = 'db+postgresql://admin:admin@shop_db:5432/shop_db',
-

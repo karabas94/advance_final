@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from book.models import Book
+from order.forms import OrderAddressForm
+from order.models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
+
 
 @login_required(login_url="/account/login")
 def cart_add(request, id):
@@ -45,3 +48,22 @@ def cart_clear(request):
 @login_required(login_url="/account/login")
 def cart_detail(request):
     return render(request, 'order/cart_detail.html')
+
+
+@login_required(login_url="/account/login")
+def address_confirmation(request):
+    if request.method == 'POST':
+        form = OrderAddressForm(request.POST)
+        if form.is_valid():
+            order = Order.objects.create(user=request.user, status=Order.OrderStatus.ORDER,
+                                         delivery_address=form.cleaned_data.get('delivery_address'))
+            cart = request.session.get('cart', None)
+            for key, value in cart.items():
+                book = Book.objects.get(id=value.get('product_id'))
+                OrderItem.objects.create(order=order, book=book, quantity=value.get('quantity'))
+            cart = Cart(request)
+            cart.clear()
+            return redirect('book:book_list')
+    else:
+        form = OrderAddressForm()
+    return render(request, 'order/order_address.html', {'form': form})

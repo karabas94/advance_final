@@ -15,7 +15,7 @@ def book_synch():
                     'name': book['name'],
                     'price': book['price'],
                     'quantity': book['quantity'],
-                    'image': 'products/default_book_image.jpeg' #заглушка для корзины
+                    'image': 'products/default_book_image.jpeg'
                 }
 
             )
@@ -32,4 +32,3 @@ def book_synch():
             break
 
     print('Success')
-
