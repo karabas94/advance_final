@@ -6,7 +6,7 @@ from book.models import Book
 
 class Order(models.Model):
     class OrderStatus(models.IntegerChoices):
-        СARD = 1, _('Card')
+        CARD = 1, _('Card')
         ORDER = 2, _('Order')
         SUCCESS = 3, _('Success')
         FAIL = 4, _("Fail")
