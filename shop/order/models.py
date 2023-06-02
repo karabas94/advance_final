@@ -6,9 +6,10 @@ from book.models import Book
 
 class Order(models.Model):
     class OrderStatus(models.IntegerChoices):
-        PROCEED = 1, _('Proceed')
-        SUCCESS = 2, _('Success')
-        FAIL = 3, _("Fail")
+        СARD = 1, _('Card')
+        ORDER = 2, _('Order')
+        SUCCESS = 3, _('Success')
+        FAIL = 4, _("Fail")
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     status = models.PositiveSmallIntegerField(choices=OrderStatus.choices)
