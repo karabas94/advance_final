@@ -44,11 +44,6 @@ services:
     networks:
       - store_db_network
     restart: on-failure
-    healthcheck:
-      test: [ "CMD", "curl", "--fail", "http://0.0.0.0:8000/admin/login/" ]
-      interval: 1m
-      timeout: 5s
-      retries: 2
 
   shop:
     container_name: shop
@@ -67,11 +62,7 @@ services:
     networks:
       - shop_db_network
     restart: on-failure
-    healthcheck:
-      test: [ "CMD", "curl", "--fail", "http://0.0.0.0:8000/admin/login/" ]
-      interval: 1m
-      timeout: 5s
-      retries: 2
+
 
   redis:
     container_name: redis
@@ -81,14 +72,11 @@ services:
       - celery
     expose:
       - 6379
-    volumes:
-      - redis:/var/lib/redis/data
-    healthcheck:
-      test: [ "CMD", "redis-cli", "-h", "localhost", "ping" ]
+
 
   rabbitmq:
     container_name: rabbitmq
-    image: rabbitmq:3.10.7-management
+    image: rabbitmq:3-alpine
     restart: on-failure
     networks:
       - shop_db_network
@@ -98,19 +86,14 @@ services:
       - 5672
       - 15672
       - 25672
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
-    healthcheck:
-      test: [ "CMD", "nc", "-z", "localhost", "5672" ]
-      interval: 5s
-      timeout: 15s
-      retries: 1
 
   celery:
     container_name: celery
     build:
       context: .
       dockerfile: docker/shop/Dockerfile
+    env_file:
+      - shop.env
     depends_on:
       - rabbitmq
       - redis
@@ -124,19 +107,11 @@ services:
       - store_db_network
       - shop_db_network
     restart: on-failure
-    environment:
-      REDIS_URL: 'redis://redis:6379/0'
-      REDIS_CACHE: 'redis:6379'
-      DATABASE_URL: 'postgres://admin:admin@shop_db:5432/shop_db'
-      DATABASE_HOST: 'shop_db'
-      DATABASE_PORT: '5432'
     command: celery -A core worker -B -l INFO
 
 volumes:
   store_db_volume:
   shop_db_volume:
-  rabbitmq_data:
-  redis:
 
 networks:
   store_db_network:
