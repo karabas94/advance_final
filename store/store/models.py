@@ -5,29 +5,33 @@ from django.utils.translation import gettext_lazy as _
 class Book(models.Model):
     name = models.CharField(max_length=255)
     price = models.FloatField()
-    quantity = models.IntegerField(null=False)
+
+    def __str__(self):
+        return self.name
 
 
 class BookItem(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     place = models.CharField(max_length=255)
 
+    def __str__(self):
+        return f'{self.book.name} - Place {self.place}'
+
 
 class Order(models.Model):
     class OrderStatus(models.IntegerChoices):
-        PROCEED = 1, _('Proceed')
-        SUCCESS = 2, _('Success')
-        FAIL = 3, _("Fail")
+        NEW = 1, _('New')
+        PROCEED = 2, _('Proceed')
+        SUCCESS = 3, _('Success')
+        FAIL = 4, _("Fail")
 
     user_email = models.EmailField()
     status = models.PositiveSmallIntegerField(choices=OrderStatus.choices)
     delivery_address = models.CharField(max_length=255)
     order_id_in_shop = models.IntegerField(unique=True)
 
-    def save(self, *args, **kwargs):
-        if self.status == Order.OrderStatus.SUCCESS:
-            self.orderitem_set.all().delete()
-        super().save(*args, **kwargs)
+    def __str__(self):
+        return self.delivery_address
 
 
 class OrderItem(models.Model):
