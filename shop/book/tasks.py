@@ -4,7 +4,7 @@ from book.models import Book
 
 
 @shared_task
-def send_new_book_to_shop():
+def send_new_book_to_shop_or_update():
     url_books = 'http://store:8000/books/'
     response = requests.get(url_books).json()
 
@@ -41,4 +41,4 @@ def send_new_book_to_shop():
         else:
             break
 
-    print('Success')
+    print('Book updated from store to shop')
