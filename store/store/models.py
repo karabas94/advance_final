@@ -22,6 +22,7 @@ class Order(models.Model):
     class OrderStatus(models.IntegerChoices):
         NEW = 1, _('New')
         PROCEED = 2, _('Proceed')
+        # SUCCESS signal to delete book items
         SUCCESS = 3, _('Success')
         FAIL = 4, _("Fail")
 
