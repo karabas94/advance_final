@@ -1,6 +1,35 @@
 import requests
-from celery import shared_task
 from order.models import Order, OrderItem
+from celery import shared_task
+from django.core.mail import send_mail
+
+
+@shared_task
+def send_order_success_emails(user_email):
+    subject = 'Order sent'
+    message = 'Thank you for your order!'
+    from_email = 'noreply@bookshop.com'
+    recipient_list = [user_email]
+
+    try:
+        send_mail(subject, message, from_email, recipient_list)
+        print("Email sent successfully")
+    except Exception as e:
+        print(f"Failed to send email: {str(e)}")
+
+
+@shared_task
+def send_order_confirmation_email(user_email):
+    subject = 'Order Confirmation'
+    message = 'Thank you for your order!'
+    from_email = 'noreply@bookshop.com'
+    recipient_list = [user_email]
+
+    try:
+        send_mail(subject, message, from_email, recipient_list)
+        print("Email sent successfully")
+    except Exception as e:
+        print(f"Failed to send email: {str(e)}")
 
 
 @shared_task

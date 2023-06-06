@@ -7,6 +7,6 @@ class StoreConfig(AppConfig):
     name = 'store'
 
     def ready(self):
-        from store.models import Order, OrderItem
+        from store.models import Order
         from store.signals import delete_related_book_items
         post_save.connect(delete_related_book_items, sender=Order)
