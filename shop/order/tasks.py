@@ -1,9 +1,6 @@
 import requests
 from celery import shared_task
 from order.models import Order, OrderItem
-from django.contrib.auth import get_user_model
-
-user = get_user_model()
 
 
 @shared_task
@@ -33,3 +30,26 @@ def send_new_orders_to_store():
         response = requests.post(url, json=data, headers=headers)
         if response.status_code == 201:
             print('Order sent to store successfully')
+
+
+@shared_task
+def update_order_status_to_shop():
+    url_orders = 'http://store:8000/orders/'
+    response = requests.get(url_orders).json()
+
+    for order in response.get('results', []):
+        order_id_in_shop = order.get('order_id_in_shop')
+        status = order.get('status')
+
+        try:
+            order = Order.objects.get(id=order_id_in_shop)
+            if status == 3:
+                order.status = 3
+                order.save()
+            elif status == 4:
+                order.status = 4
+                order.save()
+        except Order.DoesNotExist:
+            pass
+
+    print('Order status updated in shop')

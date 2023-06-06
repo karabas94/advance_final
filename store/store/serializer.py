@@ -29,7 +29,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
-    order_items = OrderItemSerializer(many=True, required=False, allow_null=True)
+    order_items = OrderItemSerializer(many=True, required=False, allow_null=True, source='orderitem_set')
 
     class Meta:
         model = Order
