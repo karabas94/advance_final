@@ -1,4 +1,4 @@
-from store.models import Order, OrderItem
+from store.models import Order
 
 
 def delete_related_book_items(sender, instance, created, **kwargs):
@@ -8,3 +8,5 @@ def delete_related_book_items(sender, instance, created, **kwargs):
             book_items = order_item.book_item.all()
             for book_item in book_items:
                 book_item.delete()
+
+

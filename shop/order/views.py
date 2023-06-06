@@ -4,6 +4,7 @@ from order.forms import OrderAddressForm
 from order.models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
+from order.tasks import send_order_confirmation_email
 
 
 @login_required(login_url="/account/login")
@@ -63,6 +64,7 @@ def address_confirmation(request):
                 OrderItem.objects.create(order=order, book=book, quantity=value.get('quantity'))
             cart = Cart(request)
             cart.clear()
+            send_order_confirmation_email(order.user.email)
             return redirect('book:book_list')
     else:
         form = OrderAddressForm()
