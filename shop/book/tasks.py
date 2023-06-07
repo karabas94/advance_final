@@ -5,7 +5,7 @@ from book.models import Book
 
 @shared_task
 def send_new_book_to_shop_or_update():
-    url_books = 'http://store:8000/books/'
+    url_books = 'http://store:8001/books/'
     response = requests.get(url_books).json()
 
     store_book_ids = [book['id'] for book in response['results']]

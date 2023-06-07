@@ -12,7 +12,7 @@ services:
     volumes:
       - store_db_volume:/var/lib/postgresql/data
     networks:
-      - store_db_network
+      - webnet
 
   shop_db:
     container_name: shop_db
@@ -25,7 +25,7 @@ services:
     volumes:
       - shop_db_volume:/var/lib/postgresql/data
     networks:
-      - shop_db_network
+      - webnet
 
   store:
     container_name: store
@@ -37,12 +37,13 @@ services:
     command: sh runserver.sh
     volumes:
       - ./store:/app
-    ports:
-      - "8000:8000"
+    expose:
+      - 8001
     depends_on:
       - store_db
     networks:
-      - store_db_network
+      - webnet
+      - nginx_network
     restart: on-failure
 
   shop:
@@ -55,12 +56,13 @@ services:
     command: sh runserver.sh
     volumes:
       - ./shop:/app
-    ports:
-      - "8001:8000"
+    expose:
+      - 8000
     depends_on:
       - shop_db
     networks:
-      - shop_db_network
+      - webnet
+      - nginx_network
     restart: on-failure
 
 
@@ -69,7 +71,7 @@ services:
     image: redis:6.2.1-alpine
     restart: on-failure
     networks:
-      - celery
+      - webnet
     expose:
       - 6379
 
@@ -79,7 +81,7 @@ services:
     image: rabbitmq:3-alpine
     restart: on-failure
     networks:
-      - shop_db_network
+      - webnet
     expose:
       - 4369
       - 5671
@@ -98,14 +100,11 @@ services:
       - rabbitmq
       - redis
       - shop
-      - store
       - shop_db
-      - store_db
     expose: []
     networks:
-      - celery
-      - store_db_network
-      - shop_db_network
+      - webnet
+      - nginx_network
     restart: on-failure
     command: celery -A core worker -B -l INFO
 
@@ -118,21 +117,36 @@ services:
     logging:
       driver: 'none'
     ports:
-      - 1025:1025
-      - 8025:8025
+      - 1025
+      - 8025
     networks:
-      - celery
-      - store_db_network
-      - shop_db_network
+      - webnet
+      - nginx_network
     expose:
       - 25
       - 8025
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    restart: on-failure
+    networks:
+      - nginx_network
+    ports:
+      - 80:80
+      - 8001:8001
+      - 8025:8025
+    depends_on:
+      - store
+      - shop
+      - mailhog
 
 volumes:
   store_db_volume:
   shop_db_volume:
 
 networks:
-  store_db_network:
-  shop_db_network:
-  celery:
+  webnet:
+  nginx_network:

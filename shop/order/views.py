@@ -64,7 +64,7 @@ def address_confirmation(request):
                 OrderItem.objects.create(order=order, book=book, quantity=value.get('quantity'))
             cart = Cart(request)
             cart.clear()
-            send_order_confirmation_email(order.user.email)
+            send_order_confirmation_email.delay(order.user.email)
             return redirect('book:book_list')
     else:
         form = OrderAddressForm()

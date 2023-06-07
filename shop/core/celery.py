@@ -18,16 +18,16 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'book_to_shop': {
         'task': 'book.tasks.send_new_book_to_shop_or_update',
-        'schedule': crontab(minute="*/5")
+        'schedule': crontab(minute="*")
     },
 
     'order_to_store': {
         'task': 'order.tasks.send_new_orders_to_store',
-        'schedule': crontab(minute="*/5")
+        'schedule': crontab(minute="*")
     },
 
     'update_status_of_order_in_shop': {
         'task': 'order.tasks.update_order_status_to_shop',
-        'schedule': crontab(minute="*/5")
+        'schedule': crontab(minute="*")
     },
 }
