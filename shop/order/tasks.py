@@ -37,7 +37,7 @@ def send_new_orders_to_store():
     new_orders = Order.objects.filter(status=Order.OrderStatus.ORDER)
 
     for order in new_orders:
-        url = 'http://store:8000/orders/'
+        url = 'http://store:8001/orders/'
         api_key = '5O8boh3b.sBX6dm403uefUTvnBWBhkcN3AaQlE5Oy'
         headers = {
             'Authorization': f'Api-Key {api_key}'
@@ -63,7 +63,7 @@ def send_new_orders_to_store():
 
 @shared_task
 def update_order_status_to_shop():
-    url_orders = 'http://store:8000/orders/'
+    url_orders = 'http://store:8001/orders/'
     response = requests.get(url_orders).json()
 
     for order in response.get('results', []):

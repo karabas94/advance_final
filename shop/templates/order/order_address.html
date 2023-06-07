@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    Order address
+{% endblock %}
+
 {% block content %}
     <h1>Order Address</h1>
     <form method="post" action="{% url 'order:address_confirmation' %}">
