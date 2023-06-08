@@ -1,9 +1,22 @@
-from store.models import Book, BookItem, Order, OrderItem
-from store.serializer import BookSerializer, BookItemSerializer, OrderSerializer, OrderItemSerializer
+from store.models import Author, Genre, Book, BookItem, Order, OrderItem
+from store.serializer import AuthorSerializer, GenreSerializer, BookSerializer, BookItemSerializer, OrderSerializer, \
+    OrderItemSerializer
 from store.permissions import IsStaffOrReadOnly
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework_api_key.permissions import HasAPIKey
+
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+    permission_classes = [HasAPIKey | permissions.IsAuthenticatedOrReadOnly, HasAPIKey | IsStaffOrReadOnly]
+
+
+class GenreViewSet(viewsets.ModelViewSet):
+    queryset = Genre.objects.all()
+    serializer_class = GenreSerializer
+    permission_classes = [HasAPIKey | permissions.IsAuthenticatedOrReadOnly, HasAPIKey | IsStaffOrReadOnly]
 
 
 class BookViewSet(viewsets.ModelViewSet):

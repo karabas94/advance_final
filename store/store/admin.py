@@ -1,8 +1,21 @@
 from django.contrib import admin
-from store.models import Book, BookItem, Order, OrderItem
+from store.models import Author, Genre, Book, BookItem, Order, OrderItem
 
 
-# @admin.register(BookItem)
+@admin.register(Author)
+class AuthorModelAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'bio']
+    list_per_page = 50
+    search_fields = ['first_name']
+
+
+@admin.register(Genre)
+class GenreModelAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    list_filter = ['name']
+    list_per_page = 50
+
+
 class BookItemInline(admin.StackedInline):
     model = BookItem
     extra = 1
@@ -11,7 +24,7 @@ class BookItemInline(admin.StackedInline):
 @admin.register(Book)
 class BookModelAdmin(admin.ModelAdmin):
     inlines = [BookItemInline]
-    list_display = ['name', 'price']
+    list_display = ['name', 'price', 'author', 'publication_year', 'description', 'pages', 'image']
     list_filter = ['price']
     list_per_page = 50
     search_fields = ['name']

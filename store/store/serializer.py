@@ -1,5 +1,17 @@
 from rest_framework import serializers
-from store.models import Book, BookItem, Order, OrderItem
+from store.models import Author, Genre, Book, BookItem, Order, OrderItem
+
+
+class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Author
+        fields = ['url', 'id', 'first_name', 'last_name', 'bio']
+
+
+class GenreSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Genre
+        fields = ['url', 'id', 'name']
 
 
 class BookItemSerializer(serializers.ModelSerializer):
@@ -9,6 +21,7 @@ class BookItemSerializer(serializers.ModelSerializer):
 
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):
+    author = serializers.ReadOnlyField(source='author.first_name')
     book_items = serializers.SerializerMethodField()
 
     def get_book_items(self, obj):
@@ -18,7 +31,8 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['url', 'id', 'name', 'price', 'book_items']
+        fields = ['url', 'id', 'name', 'price', 'author', 'genre', 'publication_year', 'description',
+                  'pages', 'image', 'book_items']
 
 
 class OrderItemSerializer(serializers.ModelSerializer):

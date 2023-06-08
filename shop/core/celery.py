@@ -16,10 +16,10 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
-    'book_to_shop': {
-        'task': 'book.tasks.send_new_book_to_shop_or_update',
-        'schedule': crontab(minute="*")
-    },
+    # 'book_to_shop': {
+    #     'task': 'book.tasks.send_new_book_to_shop_or_update',
+    #     'schedule': crontab(minute="*")
+    # },
 
     'order_to_store': {
         'task': 'order.tasks.send_new_orders_to_store',

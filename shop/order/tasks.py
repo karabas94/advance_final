@@ -1,3 +1,5 @@
+import os
+
 import requests
 from order.models import Order, OrderItem
 from celery import shared_task
@@ -38,9 +40,9 @@ def send_new_orders_to_store():
 
     for order in new_orders:
         url = 'http://store:8001/orders/'
-        api_key = '5O8boh3b.sBX6dm403uefUTvnBWBhkcN3AaQlE5Oy'
+        API_KEY = os.environ.get('API_STORE_KEY')
         headers = {
-            'Authorization': f'Api-Key {api_key}'
+            'Authorization': f'Api-Key {API_KEY}'
         }
         order_items = OrderItem.objects.filter(order=order)
 
@@ -57,6 +59,8 @@ def send_new_orders_to_store():
         }
 
         response = requests.post(url, json=data, headers=headers)
+        # print("Status Code", response.status_code)
+        # print("JSON Response ", response.json())
         if response.status_code == 201:
             print('Order sent to store successfully')
 
