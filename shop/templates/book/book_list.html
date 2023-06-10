@@ -27,14 +27,14 @@
                                 <div class="card-body">
                                     <h3 class="mb-0"><a href="{% url 'book:book_detail' book.pk %}">{{ book.name }}</a>
                                     </h3>
-                                    <p class="card-text"><a
+                                    <p class="card-text">by <a
                                             href="{% url 'book:author_detail' book.author.pk %}">{{ book.author }}</a>
                                     </p>
                                     <p class="card-text">{{ book.price }} $</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">More</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                    onclick='location.href="{% url 'book:book_detail' book.pk %}"'>More</button>
                                         </div>
                                         <small class="text-muted">9 mins</small>
                                     </div>
