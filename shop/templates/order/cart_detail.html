@@ -5,31 +5,37 @@
 {% endblock %}
 
 {% block content %}
-{% load cart_tag %}
+    <div class="col-md-9">
+        {% load cart_tag %}
 
-    <ul>
-        <li>Book name</li>
-        <li>Book price</li>
-        <li>Book quantity</li>
-        <li>Total</li>
-    </ul>
-{% for key,value in request.session.cart.items %}
-    <ul>
-        <li>{{value.name}}</li>
-        <li>{{value.price}}</li>
-        <li>
-            <button type="button" class="btn btn-warning"><a href="{% url 'order:item_increment' value.product_id%}" >+</a></button>{{value.quantity}}
-            <button type="button" class="btn btn-warning">{% if value.quantity == 1 %}<a href="{% url 'order:item_clear' value.product_id %}" >Delete</a>{% else %}
-                <a href="{% url 'order:item_decrement' value.product_id %}" >-</a>{% endif %}</button>
-        </li>
-        <li>{{ value.price|multiply:value.quantity }}</li>
-    </ul>
+        <ul>
+            <li>Book name</li>
+            <li>Book price</li>
+            <li>Book quantity</li>
+            <li>Total</li>
+        </ul>
+        {% for key,value in request.session.cart.items %}
+            <ul>
+                <li>{{ value.name }}</li>
+                <li>{{ value.price }}</li>
+                <li>
+                    <button type="button" class="btn btn-warning"><a
+                            href="{% url 'order:item_increment' value.product_id %}">+</a></button>
+                    {{ value.quantity }}
+                    <button type="button" class="btn btn-warning">{% if value.quantity == 1 %}
+                        <a href="{% url 'order:item_clear' value.product_id %}">Delete</a>{% else %}
+                        <a href="{% url 'order:item_decrement' value.product_id %}">-</a>{% endif %}</button>
+                </li>
+                <li>{{ value.price|multiply:value.quantity }}</li>
+            </ul>
 
 
-{% endfor %}
-<a href="{% url 'book:book_list' %}">Back to Book list</a>
-    <br>
-    <br>
-    <button type="button" class="btn btn-warning"><a href="{% url 'order:cart_clear' %}" >Clear cart</a></button>
-    <button type="button" class="btn btn-warning"><a href="{% url 'order:address_confirmation' %}" >Order</a></button>
+        {% endfor %}
+        <a href="{% url 'book:book_list' %}">Back to Book list</a>
+        <br>
+        <br>
+        <button type="button" class="btn btn-warning"><a href="{% url 'order:cart_clear' %}">Clear cart</a></button>
+        <button type="button" class="btn btn-warning"><a href="{% url 'order:address_confirmation' %}">Order</a>
+        </button>
+    </div>
 {% endblock %}

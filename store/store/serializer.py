@@ -2,16 +2,16 @@ from rest_framework import serializers
 from store.models import Author, Genre, Book, BookItem, Order, OrderItem
 
 
-class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['url', 'id', 'first_name', 'last_name', 'bio']
+        fields = ['id', 'first_name', 'last_name', 'bio']
 
 
-class GenreSerializer(serializers.HyperlinkedModelSerializer):
+class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ['url', 'id', 'name']
+        fields = ['id', 'name']
 
 
 class BookItemSerializer(serializers.ModelSerializer):
@@ -21,13 +21,25 @@ class BookItemSerializer(serializers.ModelSerializer):
 
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):
-    author = serializers.ReadOnlyField(source='author.first_name')
+    author = serializers.SerializerMethodField()
     book_items = serializers.SerializerMethodField()
+    genre = serializers.SerializerMethodField()
 
     def get_book_items(self, obj):
         book_items = BookItem.objects.filter(book=obj)
         serializer = BookItemSerializer(book_items, many=True)
         return serializer.data
+
+    def get_genre(self, obj):
+        genre = Genre.objects.filter(book=obj)
+        serializers = GenreSerializer(genre, many=True)
+        return serializers.data
+
+    def get_author(self, obj):
+        author = Author.objects.filter(book=obj)
+        serializers = AuthorSerializer(author, many=True)
+        return serializers.data
+
 
     class Meta:
         model = Book

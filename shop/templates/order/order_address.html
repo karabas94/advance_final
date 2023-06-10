@@ -5,10 +5,12 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Order Address</h1>
-    <form method="post" action="{% url 'order:address_confirmation' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="col-md-9">
+        <h1>Order Address</h1>
+        <form method="post" action="{% url 'order:address_confirmation' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {% endblock %}

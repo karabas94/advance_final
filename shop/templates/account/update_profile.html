@@ -3,46 +3,49 @@
 {% block title %}Update profile{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <form method="POST" class="needs-validation px-5" novalidate>
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="{{ form.first_name.id_for_label }}" class="form-label">First name</label>
-                <input type="text" class="form-control" id="{{ form.first_name.id_for_label }}"
-                       name="{{ form.first_name.name }}"
-                       placeholder="First name" required value="{{ object.first_name }}">
-                {% for error in field.errors %}
-                    <div class="invalid-feedback">
-                        {{ error }}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="mb-3">
-                <label for="{{ form.last_name.id_for_label }}" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="{{ form.last_name.id_for_label }}"
-                       name="{{ form.last_name.name }}" placeholder="Last name"
-                       required value="{{ object.last_name }}">
-                {% for error in field.errors %}
-                    <div class="invalid-feedback">
-                        {{ error }}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="mb-3">
-                <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
-                <input type="text" class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}"
-                       placeholder="Email"
-                       required value="{{ object.email }}">
-                {% for error in field.errors %}
-                    <div class="invalid-feedback">
-                        {{ error }}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary text-center">Update</button>
-            </div>
-        </form>
+    <div class="col-md-9">
+        <div class="container">
+            <form method="POST" class="needs-validation px-5" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.first_name.id_for_label }}" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="{{ form.first_name.id_for_label }}"
+                           name="{{ form.first_name.name }}"
+                           placeholder="First name" required value="{{ object.first_name }}">
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.last_name.id_for_label }}" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="{{ form.last_name.id_for_label }}"
+                           name="{{ form.last_name.name }}" placeholder="Last name"
+                           required value="{{ object.last_name }}">
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="{{ form.email.id_for_label }}"
+                           name="{{ form.email.name }}"
+                           placeholder="Email"
+                           required value="{{ object.email }}">
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary text-center">Update</button>
+                </div>
+            </form>
+        </div>
     </div>
 
 {% endblock %}

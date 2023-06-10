@@ -4,7 +4,7 @@ from store.models import Author, Genre, Book, BookItem, Order, OrderItem
 
 @admin.register(Author)
 class AuthorModelAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name', 'bio']
+    list_display = ['first_name', 'last_name']
     list_per_page = 50
     search_fields = ['first_name']
 
@@ -24,7 +24,7 @@ class BookItemInline(admin.StackedInline):
 @admin.register(Book)
 class BookModelAdmin(admin.ModelAdmin):
     inlines = [BookItemInline]
-    list_display = ['name', 'price', 'author', 'publication_year', 'description', 'pages', 'image']
+    list_display = ['name', 'price', 'author', 'publication_year', 'pages']
     list_filter = ['price']
     list_per_page = 50
     search_fields = ['name']
