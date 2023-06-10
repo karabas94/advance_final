@@ -6,12 +6,63 @@
 
 {% block content %}
     <div class="col-md-9">
-        <h1>{{ object.name }}</h1>
-        <p>Price: {{ object.price }}</p>
-        <p>Quantity: {{ object.quantity }}</p>
-        <p>
-            <button type="button" class="btn btn-warning"><a href="{% url 'order:cart_add' book.id %}">Add to cart</a>
-            </button>
-        </p>
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">{{ object.name }}</h2>
+                <h4 class="text-body-secondary">by <a href="{% url 'book:author_detail' object.author.pk %}">{{ object.author }}</a></h4>
+                <div class="collapse" id="descriptionCollapse">
+                    <p class="lead">{{ object.description }}</p>
+                </div>
+                <div class="truncate-text">
+                    <p class="lead" id="truncatedDescription">{{ object.description|truncatechars:400 }}</p>
+                    {% if object.description|length > 400 %}
+                        <a class="btn btn-link" data-bs-toggle="collapse" href="#descriptionCollapse" role="button"
+                           aria-expanded="false" aria-controls="descriptionCollapse" id="readMoreLink">... Read more</a>
+                    {% endif %}
+                </div>
+                <p class="lead">Genre:
+                    {% for genre in object.genre.all %}
+                        {{ genre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p class="lead">Publication: {{ object.publication_year }} year</p>
+                <p class="lead">Page: {{ object.pages }} </p>
+                <p class="lead">Price: {{ object.price }} $</p>
+                <p class="lead">Quantity: {{ object.quantity }} pc</p>
+                <p>
+                    <button type="button" class="btn btn-warning"><a href="{% url 'order:cart_add' book.id %}">Add to
+                        cart</a>
+                    </button>
+                </p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="590"
+                     src="{{ book.image.url }}"
+                     role="img" aria-label="Placeholder: Thumbnail">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"></rect>
+            </div>
+        </div>
     </div>
+
+<script>
+    var readMoreLink = document.getElementById('readMoreLink');
+
+    readMoreLink.addEventListener('click', function () {
+        var truncatedDescription = document.getElementById('truncatedDescription');
+        var descriptionCollapse = document.getElementById('descriptionCollapse');
+        if (truncatedDescription.style.display === 'none') {
+            truncatedDescription.style.display = 'block';
+            readMoreLink.innerHTML = '... Read more';
+            descriptionCollapse.classList.remove('show');
+        } else {
+            truncatedDescription.style.display = 'none';
+            readMoreLink.innerHTML = '... Read less';
+            descriptionCollapse.classList.add('show');
+        }
+    });
+</script>
 {% endblock %}
+
+
