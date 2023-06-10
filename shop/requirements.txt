@@ -14,6 +14,7 @@ django-celery-results==2.5.1
 django-debug-toolbar==4.1.0
 django-extensions==3.2.1
 django-shopping-cart==0.1
+django-widget-tweaks==1.4.12
 flake8==6.0.0
 greenlet==2.0.2
 idna==3.4

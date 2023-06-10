@@ -1,6 +1,6 @@
 from django.urls import path
+from account import views
 from account.views import RegisterFormView, login_request, logout_request, UpdateProfile, UserProfile, PublicProfile
-
 
 app_name = 'account'
 urlpatterns = [
@@ -13,4 +13,6 @@ urlpatterns = [
     path('<int:pk>/', PublicProfile.as_view(), name='user_profile'),
 
     path('logout', logout_request, name="logout"),
+
+    path('contact', views.contact_form, name="contact"),
 ]
