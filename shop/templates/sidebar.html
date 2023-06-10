@@ -1,7 +1,7 @@
 {% block sidebar %}
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><h5>Genres</h5></li>
-        <li class="list-group-item"><a href="{% url 'book:book_list' %}">All Genres</a></li>
+        <li class="list-group-item"><a href="{% url 'book:book_list' %}">ALL GENRE</a></li>
         {% for genre in genres %}
             <li class="list-group-item"><a href="{% url 'book:book_list' %}?genre_id={{ genre.pk }}">{{ genre.name }}</a></li>
         {% endfor %}
