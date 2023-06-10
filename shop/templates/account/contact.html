@@ -1,0 +1,28 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'account:contact' %}" class="js-contact-form needs-validation">
+    {% csrf_token %}
+    <div class="modal-header">
+        <h5 class="modal-title">Contact us</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        {% for field in form %}
+            <div class="mb-3{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.id_for_label }}" class="col-form-label">{{ field.label }}</label>
+                {% render_field field class+="form-control" %}
+                {% if form.is_bound %}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback valid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
+    </div>
+</form>

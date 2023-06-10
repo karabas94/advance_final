@@ -1,12 +1,15 @@
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from account.forms import RegisterForm
+from account.forms import RegisterForm, ContactFrom
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from account.tasks import contact_us
 
 
 User = get_user_model()
@@ -76,3 +79,21 @@ class PublicProfile(generic.DetailView):
     def get_object(self, queryset=None):
         user = User.objects.get(pk=self.kwargs['pk'])
         return user
+
+
+def contact_form(request):
+    data = dict()
+    if request.method == "POST":
+        form = ContactFrom(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            contact_us.delay(subject, message, email)
+            data['form_is_valid'] = True
+        else:
+            data['form_is_valid'] = False
+    else:
+        form = ContactFrom()
+    data['html_form'] = render_to_string('account/contact.html', {'form': form}, request=request)
+    return JsonResponse(data)

@@ -30,4 +30,9 @@ app.conf.beat_schedule = {
         'task': 'order.tasks.update_order_status_to_shop',
         'schedule': crontab(minute="*")
     },
+
+    'contact_us': {
+        'task': 'account.tasks.contact_us',
+        'schedule': crontab(minute="*")
+    },
 }
