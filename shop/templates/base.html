@@ -131,28 +131,28 @@
                 {% endif %}
             </ul>
         {% endif %}
-        {% if comments.has_other_pages %}
+        {% if reviews.has_other_pages %}
             <ul class="pagination justify-content-center mt-5">
-                {% if comments.has_previous %}
+                {% if reviews.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ comments.previous_page_number }}">Previous</a>
+                        <a class="page-link" href="?page={{ reviews.previous_page_number }}">Previous</a>
                     </li>
                 {% endif %}
-                {% if comments.number > 1 %}
+                {% if reviews.number > 1 %}
                     <li class="page-item">
                         <a class="page-link" href="?page=1">First</a>
                     </li>
                 {% endif %}
                 <li class="page-item active">
-                    <a class="page-link" href="#">Page {{ comments.number }} of {{ comments.paginator.num_pages }}.</a>
+                    <a class="page-link" href="#">Page {{ reviews.number }} of {{ reviews.paginator.num_pages }}.</a>
                 </li>
-                {% if comments.number < comments.paginator.num_pages %}
+                {% if reviews.number < reviews.paginator.num_pages %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ comments.next_page_number }}">Next</a>
+                        <a class="page-link" href="?page={{ reviews.next_page_number }}">Next</a>
                     </li>
                 {% endif %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ comments.paginator.num_pages }}">Last</a>
+                    <a class="page-link" href="?page={{ reviews.paginator.num_pages }}">Last</a>
                 </li>
 
             </ul>
