@@ -9,7 +9,8 @@
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
                 <h2 class="featurette-heading fw-normal lh-1">{{ object.name }}</h2>
-                <h4 class="text-body-secondary">by <a href="{% url 'book:author_detail' object.author.pk %}">{{ object.author }}</a></h4>
+                <h4 class="text-body-secondary">by <a
+                        href="{% url 'book:author_detail' object.author.pk %}">{{ object.author }}</a></h4>
                 <div class="collapse" id="descriptionCollapse">
                     <p class="lead">{{ object.description }}</p>
                 </div>
@@ -31,9 +32,7 @@
                 <p class="lead">Price: {{ object.price }} $</p>
                 <p class="lead">Quantity: {{ object.quantity }} pc</p>
                 <p>
-                    <button type="button" class="btn btn-warning"><a href="{% url 'order:cart_add' book.id %}">Add to
-                        cart</a>
-                    </button>
+                    <a class="btn btn-warning" href="{% url 'order:cart_add' book.id %}">Add to cart</a>
                 </p>
             </div>
             <div class="col-md-5 order-md-1">
@@ -45,24 +44,59 @@
             </div>
         </div>
     </div>
+    {% if user.is_authenticated %}
+        <h3 class="text-center m-2">Add a Review</h3>
+        <form method="post" action="{% url 'book:add_review' object.pk %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label" for="message">Message:</label>
+                <textarea class="form-control" name="message" id="message" required></textarea>
+                <div class="invalid-feedback">
+                    Please provide a message.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    {% endif %}
+    <h3 class="text-center m-2">Review</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-text">{{ review.name }}</h5>
+                            <p class="card-text">{{ review.message }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-body-secondary">{{ review.created_at }}
+                                    by {{ review.author }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No review yet.</p>
+        {% endif %}
+    </div>
 
-<script>
-    var readMoreLink = document.getElementById('readMoreLink');
+    <script>
+        var readMoreLink = document.getElementById('readMoreLink');
 
-    readMoreLink.addEventListener('click', function () {
-        var truncatedDescription = document.getElementById('truncatedDescription');
-        var descriptionCollapse = document.getElementById('descriptionCollapse');
-        if (truncatedDescription.style.display === 'none') {
-            truncatedDescription.style.display = 'block';
-            readMoreLink.innerHTML = '... Read more';
-            descriptionCollapse.classList.remove('show');
-        } else {
-            truncatedDescription.style.display = 'none';
-            readMoreLink.innerHTML = '... Read less';
-            descriptionCollapse.classList.add('show');
-        }
-    });
-</script>
+        readMoreLink.addEventListener('click', function () {
+            var truncatedDescription = document.getElementById('truncatedDescription');
+            var descriptionCollapse = document.getElementById('descriptionCollapse');
+            if (truncatedDescription.style.display === 'none') {
+                truncatedDescription.style.display = 'block';
+                readMoreLink.innerHTML = '... Read more';
+                descriptionCollapse.classList.remove('show');
+            } else {
+                truncatedDescription.style.display = 'none';
+                readMoreLink.innerHTML = '... Read less';
+                descriptionCollapse.classList.add('show');
+            }
+        });
+    </script>
 {% endblock %}
 
 

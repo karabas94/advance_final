@@ -36,7 +36,7 @@
                                             <button type="button" class="btn btn-sm btn-outline-secondary"
                                                     onclick='location.href="{% url 'book:book_detail' book.pk %}"'>More</button>
                                         </div>
-                                        <small class="text-muted">9 mins</small>
+                                        <small class="text-body-secondary">{{ book.review_count }} reviews</small>
                                     </div>
                                 </div>
                             </div>

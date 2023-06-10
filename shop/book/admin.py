@@ -1,5 +1,5 @@
 from django.contrib import admin
-from book.models import Book, Author, Genre
+from book.models import Book, Author, Genre, Review
 
 
 @admin.register(Author)
@@ -22,3 +22,20 @@ class BookModelAdmin(admin.ModelAdmin):
     list_filter = ['price']
     list_per_page = 50
     search_fields = ['name']
+
+
+@admin.action(description='Mark selected review as published')
+def check_review(modeladmin, request, queryset):
+    for obj in queryset:
+        obj.is_reviewed = True
+        obj.save()
+
+
+@admin.register(Review)
+class ReviewModelAdmin(admin.ModelAdmin):
+    list_display = ['author', 'message', 'is_reviewed']
+    list_filter = ['created_at']
+    date_hierarchy = 'created_at'
+    list_per_page = 50
+    search_fields = ['message']
+    actions = [check_review]
