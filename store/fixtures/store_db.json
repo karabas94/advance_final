@@ -1,0 +1,734 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$O9PoOUwIbAWjNqiRmn6SI2$iDx8VX0wBCr5M3ExxsMVxoCz2yTb4GKLPX/9Wjy93hc=",
+    "last_login": "2023-06-10T22:59:49.348Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-06-09T13:51:46.259Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rest_framework_api_key.apikey",
+  "pk": "HdFQfIRA.pbkdf2_sha256$600000$ZzlkwUczWYFjUZWA80I1ku$Y4aj8xi5xwgozRdpZO4jGN7y29N6OwlfC/Xcd9S0z3g=",
+  "fields": {
+    "prefix": "HdFQfIRA",
+    "hashed_key": "pbkdf2_sha256$600000$ZzlkwUczWYFjUZWA80I1ku$Y4aj8xi5xwgozRdpZO4jGN7y29N6OwlfC/Xcd9S0z3g=",
+    "created": "2023-06-10T22:49:33.380Z",
+    "name": "1",
+    "revoked": false,
+    "expiry_date": "2023-06-30T22:49:29Z"
+  }
+},
+{
+  "model": "store.author",
+  "pk": 1,
+  "fields": {
+    "first_name": "George",
+    "last_name": "Orwell",
+    "bio": "George Orwell is one of England's most famous writers and social commentators. Among his works are the classic political satire Animal Farm and the dystopian nightmare vision Nineteen Eighty-Four. Orwell was also a prolific essayist, and it is for these works that he was perhaps best known during his lifetime. They include Why I Write and Politics and the English Language. His writing is at once insightful, poignant and entertaining, and continues to be read widely all over the world."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 2,
+  "fields": {
+    "first_name": "George R.R.",
+    "last_name": "Martin",
+    "bio": "New Jersey native George R.R. (Richard Raymond) Martin—or GRRM-- is best known for A Song of Ice and Fire adapted to become the television series Game of Thrones. Martin has written one of each season's episodes and also serves as the series' co-executive producer. Born George Raymond Martin in New Jersey in 1948, Martin received a B.S. and an M.S. in Journalism from Northwestern University. He began writing science fiction, fantasy, and horror part-time during the 1970s while working as a VISTA volunteer, chess director, and journalism instructor. Moving to Hollywood, Martin worked in the television industry in roles such as a story editor for The Twilight Zone and producer for Beauty and the Beast. Among the many awards Martin has garnered are Hugo Awards for Best Novella, Best Novelette, Best Short Story, and Best Dramatic Presentation as well as the World Fantasy Award for Lifetime Achievement. Martin was selected by Time magazine as one of the \"Most Influential People of 2011.\" He lives in Santa Fe, New Mexico."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 3,
+  "fields": {
+    "first_name": "J.R.R.",
+    "last_name": "Tolkien",
+    "bio": "J.R.R. Tolkien (b. January 3rd, 1892 in Bloemfontain, South Africa--d. September 2nd, 1973) was an English author and poet most famous for the Lord of the Rings trilogy. He is also the author of The Hobbit and a literary criticism of Beowulf entitled Beowulf: The Monsters and the Critics as well as several children's books. Tolkien had a keen interest in linguistics, which he studied in university, and his passion for language comes through in many of his works, particularly the invented language of Elvish in the Lord of the Rings triology. He was ranked by Forbes as the 5th highest-earning dead celebrity in 2009."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 4,
+  "fields": {
+    "first_name": "Sarah",
+    "last_name": "Gailey",
+    "bio": "Sarah Gailey is an American author. Their alternate history novella River of Teeth was a finalist for the 2017 Nebula Award for Best Novella, the 2018 Hugo Award for Best Novella, and the 2018 Locus Award for Best Novella. In 2018, they also won the Hugo Award for Best Fan Writer."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 5,
+  "fields": {
+    "first_name": "James",
+    "last_name": "Rollins",
+    "bio": "James Paul Czajkowski writes bestselling thrillers under the name James Rollins, and has also published fantasy novels as James Clemens. Born in 1961 in Chicago, Rollins studied evolutionary biology as an undergraduate and earned his doctorate in veterinary medicine from the University of Missouri, Columbia. After practicing for over ten years as a veterinarian in Sacramento, California, Rollins became a full-time author. His bestselling action-adventures have been translated into forty years."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 6,
+  "fields": {
+    "first_name": "Diana",
+    "last_name": "Urban",
+    "bio": "Diana Urban is an award-winning author of dark, twisty thrillers, including All Your Twisted Secrets, These Deadly Games, and Lying in the Deep coming 5/2/23 from Penguin Teen. (Get the preorder gift for Lying in the Deep here!) When she’s not torturing her fictional characters, she freelances in video game narrative writing. She lives with her husband and cat in Boston and enjoys reading, playing video games, fawning over cute animals, and looking at the beach from a safe distance. Connect with her on Instagram, TikTok, or Twitter."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 7,
+  "fields": {
+    "first_name": "Thomas",
+    "last_name": "Tryon",
+    "bio": "Thomas Lester Tryon (January 14, 1926 – September 4, 1991) was an American actor and novelist. As an actor, he was billed as Tom Tryon and is best known for playing the title role in the film The Cardinal (1963), featured roles in the war films The Longest Day (1962) and In Harm's Way (1965), acting with John Wayne in both movies, and especially the Walt Disney television character Texas John Slaughter (1958–1961). Tryon later turned to the writing of prose fiction and screenplays, and wrote several successful science fiction, horror and mystery novels as Thomas Tryon."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 8,
+  "fields": {
+    "first_name": "Juan",
+    "last_name": "Gómez-Jurado",
+    "bio": "Juan Gómez-Jurado (born 16 December 1977) is a Spanish journalist and author. He is a columnist in \"La Voz de Galicia\" and \"ABC\", distributed in Spain, and he participates in multiple radio and TV programs. His books have been translated into 42 languages and he is one of the most successful living Spanish authors, along with Javier Sierra and Carlos Ruiz Zafón. His writing has been described by critics as \"energetic and cinematographic\"."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 9,
+  "fields": {
+    "first_name": "TJ",
+    "last_name": "Klune",
+    "bio": "Travis John Klune (born May 20, 1982) is an American author of fantasy and romantic fiction featuring gay and LGBTQ+ characters. His fantasy novel The House in the Cerulean Sea is a New York Times best seller and winner of the 2021 Alex and Mythopoeic Awards. Klune has spoken about how his asexuality influences his writing. His novel Into This River I Drown won the Lambda Literary Award for Best Gay Romance in 2014."
+  }
+},
+{
+  "model": "store.author",
+  "pk": 10,
+  "fields": {
+    "first_name": "David",
+    "last_name": "Grann",
+    "bio": "David Elliot Grann (born March 10, 1967) is an American journalist, a staff writer for The New Yorker, and a best-selling author."
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 1,
+  "fields": {
+    "name": "ROMANCE"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 2,
+  "fields": {
+    "name": "FANTAZY"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 3,
+  "fields": {
+    "name": "SCIENCE FICTION"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 4,
+  "fields": {
+    "name": "DYSTOPIAN"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 5,
+  "fields": {
+    "name": "ACTION & ADVENTURE"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 6,
+  "fields": {
+    "name": "MYSTERY"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 7,
+  "fields": {
+    "name": "HORROR"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 8,
+  "fields": {
+    "name": "THRILLER & SUSPENSE"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 9,
+  "fields": {
+    "name": "CHILDREN'S"
+  }
+},
+{
+  "model": "store.genre",
+  "pk": 10,
+  "fields": {
+    "name": "HISTORY"
+  }
+},
+{
+  "model": "store.book",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "publication_year": 2003,
+    "description": "Written 70 years ago, 1984 was George Orwell's chilling prophecy about the future. And while 1984 has come and gone, his dystopian vision of a government that will do anything to control the narrative is timelier than ever... -Nominated as one of America's best-loved novels by PBS's The Great American Read - \" The Party told you to reject the evidence of your eyes and ears. It was their final, most essential command. \" Winston Smith toes the Party line, rewriting history to satisfy the demands of the Ministry of Truth. With each lie he writes, Winston grows to hate the Party that seeks power for its own sake and persecutes those who dare to commit thoughtcrimes. But as he starts to think for himself, Winston can't escape the fact that Big Brother is always watching... A startling and haunting vision of the world, 1984 is so powerful that it is completely convincing from start to finish. No one can deny the influence of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions--a legacy that seems only to grow with the passage of time. Includes a foreword by Thomas Pynchon",
+    "name": "1984",
+    "price": 10.0,
+    "pages": 368,
+    "image": "products/1984_vJ59FPh.jpg",
+    "genre": [
+      4
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 2,
+  "fields": {
+    "author": 2,
+    "publication_year": 2002,
+    "description": "THE BOOK BEHIND THE SECOND SEASON OF GAME OF THRONES, AN ORIGINAL SERIES NOW ON HBO. Here is the second volume in George R.R. Martin magnificent cycle of novels that includes A Game of Thrones and A Storm of Swords . As a whole, this series comprises a genuine masterpiece of modern fantasy, bringing together the best the genre has to offer. Magic, mystery, intrigue, romance, and adventure fill these pages and transport us to a world unlike any we have ever experienced. Already hailed as a classic, George R.R. Martin stunning series is destined to stand as one of the great achievements of imaginative fiction. A CLASH OF KINGS A comet the color of blood and flame cuts across the sky. Two great leaders--Lord Eddard Stark and Robert Baratheon--who hold sway over an age of enforced peace are dead, victims of royal treachery. Now, from the ancient citadel of Dragonstone to the forbidding shores of Winterfell, chaos reigns. Six factions struggle for control of a divided land and the Iron Throne of the Seven Kingdoms, preparing to stake their claims through tempest, turmoil, and war. It is a tale in which brother plots against brother and the dead rise to walk in the night. Here a princess masquerades as an orphan boy; a knight of the mind prepares a poison for a treacherous sorceress; and wild men descend from the Mountains of the Moon to ravage the countryside. Against a backdrop of incest and fratricide, alchemy and murder, victory may go to the men and women possessed of the coldest steel...and the coldest hearts. For when kings clash, the whole land trembles.",
+    "name": "A Clash of Kings",
+    "price": 30.0,
+    "pages": 784,
+    "image": "products/A_Clash_of_Kings_klIBPil.jpg",
+    "genre": [
+      2
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 3,
+  "fields": {
+    "author": 2,
+    "publication_year": 2002,
+    "description": "NOW THE ACCLAIMED HBO SERIES GAME OF THRONES--THE MASTERPIECE THAT BECAME A CULTURAL PHENOMENON Winter is coming. Such is the stern motto of House Stark, the northernmost of the fiefdoms that owe allegiance to King Robert Baratheon in far-off King's Landing. There Eddard Stark of Winterfell rules in Robert's name. There his family dwells in peace and comfort: his proud wife, Catelyn; his sons Robb, Brandon, and Rickon; his daughters Sansa and Arya; and his bastard son, Jon Snow. Far to the north, behind the towering Wall, lie savage Wildings and worse--unnatural things relegated to myth during the centuries-long summer, but proving all too real and all too deadly in the turning of the season. Yet a more immediate threat lurks to the south, where Jon Arryn, the Hand of the King, has died under mysterious circumstances. Now Robert is riding north to Winterfell, bringing his queen, the lovely but cold Cersei, his son, the cruel, vainglorious Prince Joffrey, and the queen's brothers Jaime and Tyrion of the powerful and wealthy House Lannister--the first a swordsman without equal, the second a dwarf whose stunted stature belies a brilliant mind. All are heading for Winterfell and a fateful encounter that will change the course of kingdoms. Meanwhile, across the Narrow Sea, Prince Viserys, heir of the fallen House Targaryen, which once ruled all of Westeros, schemes to reclaim the throne with an army of barbarian Dothraki--whose loyalty he will purchase in the only coin left to him: his beautiful yet innocent sister, Daenerys.",
+    "name": "A Game of Thrones",
+    "price": 30.0,
+    "pages": 720,
+    "image": "products/A_Game_of_Thrones_9QtJ0sO.jpg",
+    "genre": [
+      2
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 4,
+  "fields": {
+    "author": 3,
+    "publication_year": 2012,
+    "description": "A New York Times Bestseller--Part One of --The Lord of the Rings--In a sleepy village in the Shire, young Frodo Baggins is faced with an immense task as his elderly cousin Bilbo entrusts the One Ring of Sauron to his care. Frodo must make a perilous journey across Middle-earth to the Cracks of Doom, there to destroy the all-powerful Ring and foil the Dark Lord in his evil purpose.",
+    "name": "The Fellowship of the Ring",
+    "price": 40.0,
+    "pages": 432,
+    "image": "products/The_Fellowship_of_the_Ring_ObqchgU.jpg",
+    "genre": [
+      2
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 5,
+  "fields": {
+    "author": 3,
+    "publication_year": 1977,
+    "description": "Set in a time far earlier than Tolkien's master works, The Hobbit and The Lord of the Rings, this is the epic history of the elves, and the grand story of the creation of Tolkien's magical world. The Lord of the Rings narrated the great events at the end of the Third Age; but the tales of The Silmarillion are legends deriving from a much deeper past, when Morgoth, the first Dark Lord, dwelt in Middle-earth, and the High Elves made war upon him for the recovery of the Silmarils. Never published in the author's lifetime, The Silmarillion is an essential compendium for all Tolkien fans. It will be published in five consecutive volumes, each completely unabridged. The series contains not only the Quenta Silmarillion, but four other short works: the Ainulindale, Valaquenta, Akallabeth and Of the Rings of Power.",
+    "name": "The Silmarillion",
+    "price": 40.0,
+    "pages": 365,
+    "image": "products/The_Silmarillion_dj2K3q1.jpg",
+    "genre": [
+      2
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 6,
+  "fields": {
+    "author": 4,
+    "publication_year": 2021,
+    "description": "Sarah Gailey's The Echo Wife is \"a trippy domestic thriller which takes the extramarital affair trope in some intriguingly weird new directions.\"--Entertainment Weekly I'm embarrassed, still, by how long it took me to notice. Everything was right there in the open, right there in front of me, but it still took me so long to see the person I had married. It took me so long to hate him. Martine is a genetically cloned replica made from Evelyn Caldwell's award-winning research. She's patient and gentle and obedient. She's everything Evelyn swore she'd never be. And she's having an affair with Evelyn's husband. Now, the cheating bastard is dead, and both Caldwell wives have a mess to clean up. Good thing Evelyn Caldwell is used to getting her hands dirty.",
+    "name": "The Echo Wife",
+    "price": 10.0,
+    "pages": 256,
+    "image": "products/The_Echo_Wife_xnji393.jpg",
+    "genre": [
+      3
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 7,
+  "fields": {
+    "author": 5,
+    "publication_year": 2016,
+    "description": "A war is coming, a battle that will stretch from the prehistoric forests of the ancient past to the cutting-edge research labs of today, all to reveal a true mystery buried deep within our DNA, a mystery that will leave readers changed forever . . .In this groundbreaking masterpiece of ingenuity and intrigue that spans 50,000 years in human history, New York Times bestselling author James Rollins takes us to mankind's next great leap.But will it mark a new chapter in our development . . . or our extinction?In the remote mountains of Croatia, an archaeologist makes a strange discovery: a subterranean Catholic chapel, hidden for centuries, holds the bones of a Neanderthal woman. In the same cavern system, elaborate primitive paintings tell the story of an immense battle between tribes of Neanderthals and monstrous shadowy figures. Who is this mysterious enemy depicted in these ancient drawings and what do the paintings mean?Before any answers could be made, the investigative team is attacked, while at the same time, a bloody assault is made upon a primate research center outside of Atlanta. How are these events connected? Who is behind these attacks? The search for the truth will take Commander Gray Pierce of Sigma Force 50,000 years into the past. As he and Sigma trace the evolution of human intelligence to its true source, they will be plunged into a cataclysmic battle for the future of humanity that stretches across the globe . . . and beyond.With the fate of our future at stake, Sigma embarks on its most harrowing odyssey ever--a breathtaking quest that will take them from ancient tunnels in Ecuador that span the breadth of South America to a millennia-old necropolis holding the bones of our ancestors. Along the way, revelations involving the lost continent of Atlantis will reveal true mysteries tied to mankind's first steps on the moon. In the end, Gray Pierce and his team will face to their greatest threat: an ancient evil, resurrected by modern genetic science, strong enough to bring about the end of man's dominance on this planet.Only this time, Sigma will falter--and the world we know will change forever.",
+    "name": "The Bone Labyrinth",
+    "price": 15.0,
+    "pages": 688,
+    "image": "products/The_Bone_Labyrinth_7Y42F8k.jpg",
+    "genre": [
+      5
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 8,
+  "fields": {
+    "author": 6,
+    "publication_year": 2023,
+    "description": "A juicy thriller of jealousy, love, and betrayal set on a Semester at Sea-inspired cruise ship, with a diverse cast of delightfully suspicious characters who'll leave you guessing with every jaw-dropping twist. After being jilted by her ex-boyfriend and best friend, Jade couldn't be more ready to embark on the adventure of a lifetime--11 countries in 4 months, all from the luxurious Campus on Board ship--and to wedge an entire globe between her and the people who broke her heart. But when Jade discovers the backstabbing couple are also setting sail, her obsession with them grows and festers, leading to a shocking murder. And as their friends begin to drop like flies, Jade and her new crush must race to clear her name and find the killer they're trapped at sea with....before anyone else winds up in body bags. Perfect for readers of Natalie D. Richards, E. Lockhart, and Karen McManus!",
+    "name": "Lying in the Deep",
+    "price": 10.0,
+    "pages": 384,
+    "image": "products/Lying_in_the_Deep_UXfVtDF.jpg",
+    "genre": [
+      6
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 9,
+  "fields": {
+    "author": 7,
+    "publication_year": 2018,
+    "description": "In this spellbinding horror novel, a family trades their crime-ridden city for country life--and encounters an evil more sinister than they could have imagined After watching his asthmatic daughter suffer in the foul city air, Theodore Constantine decides to get back to the land. When he and his wife search New England for the perfect nineteenth-century home, they find no township more charming, no countryside more idyllic than the farming village of Cornwall Coombe. Here they begin a new life: simple, pure, close to nature--and ultimately more terrifying than Manhattan's darkest alley. When the Constantines win the friendship of the town matriarch, the mysterious Widow Fortune, they are invited to join the ancient festival of Harvest Home, a ceremony whose quaintness disguises dark intentions. In this bucolic hamlet, where bootleggers work by moonlight and all of the villagers seem to share the same last name, the past is more present than outsiders can fathom--and something far more sinister than the annual harvest is about to rise out of the earth. Credited as the inspiration for Stephen King's Children of the Corn, Thomas Tryon's chilling novel was ahead of its time when first published, and continues to provoke abject terror in readers.",
+    "name": "Harvest Home",
+    "price": 15.0,
+    "pages": 400,
+    "image": "products/Harvest_Home_lxBQ4A5.jpg",
+    "genre": [
+      7
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 10,
+  "fields": {
+    "author": 8,
+    "publication_year": 2023,
+    "description": "\"Pacing of the breakneck variety. Short chapters, funny asides, lethally potent descriptions: They all contribute to a frenetic page-turning momentum... you'll have great fun reading it.\" --The New York Times Book Review Introducing Antonia Scott--the most compelling and original detective since Lisbeth Salander--in Juan G?mez-Jurado's Red Queen, the #1 international award-winning bestseller & thriller that has taken the world by storm. Antonia Scott--the daughter of a British diplomat and a Spanish mother--has a gifted forensic mind, whose ability to reconstruct crimes and solve baffling murders is legendary. But after a personal trauma, she's refused to continue her work or even leave her apartment. Jon Gutierrez, a police officer in Bilbao--disgraced, suspended, and about to face criminal charges--is offered a chance to salvage his career by a secretive organization that works in the shadows to direct criminal investigations of a highly sensitive nature. All he has to do is succeed where many others have failed: Convince a recalcitrant Antonia to come out of her self-imposed retirement, protecting her and helping her investigate a new, terrifying case. The case is a macabre, ritualistic murder--a teen-aged boy from a wealthy family whose body was found without a drop of blood left in it. But the murder is just the start. A high-ranking executive and daughter of one of the richest men in Spain is kidnapped, a crime which is tied to the previous murder. Behind them both is a hidden mastermind with even more sinister plans. And the only person with a chance to see the connections, solve the crimes and successfully match wits with the killer before tragedy strikes again...is Antonia Scott.",
+    "name": "Red Queen",
+    "price": 10.0,
+    "pages": 384,
+    "image": "products/Red_Queen_5B4ff4G.jpg",
+    "genre": [
+      8
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 11,
+  "fields": {
+    "author": 9,
+    "publication_year": 2023,
+    "description": "The Bennett family has a secret: They're not just a family, they're a pack. Wolfsong is Ox Matheson's story. Oxnard Matheson was twelve when his father taught him a lesson: Ox wasn't worth anything and people would never understand him. Then his father left. Ox was sixteen when the energetic Bennett family moved in next door, harboring a secret that would change him forever. The Bennetts are shapeshifters. They can transform into wolves at will. Drawn to their magic, loyalty, and enduring friendships, Ox feels a gulf between this extraordinary new world and the quiet life he's known, but he finds an ally in Joe, the youngest Bennett boy. Ox was twenty-three when murder came to town and tore a hole in his heart. Violence flared, tragedy split the pack, and Joe left town, leaving Ox behind. Three years later, the boy is back. Except now he's a man - charming, handsome, but haunted - and Ox can no longer ignore the song that howls between them. The beloved fantasy romance sensation by New York Times bestselling author TJ Klune, about love, loyalty, betrayal, and family. The Green Creek Series is for adult readers. Now available from Tor Books.",
+    "name": "Wolfsong",
+    "price": 15.0,
+    "pages": 528,
+    "image": "products/Wolfsong_3UBo0qE.jpg",
+    "genre": [
+      1
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 12,
+  "fields": {
+    "author": 10,
+    "publication_year": 2023,
+    "description": "#1 NEW YORK TIMES BESTSELLER - From the author of Killers of the Flower Moon, a page-turning story of shipwreck, survival, and savagery, culminating in a court martial that reveals a shocking truth. The powerful narrative reveals the deeper meaning of the events on The Wager, showing that it was not only the captain and crew who ended up on trial, but the very idea of empire. \"Riveting...Reads like a thriller, tackling a multilayered history--and imperialism--with gusto.\" --Time \"A tour de force of narrative nonfiction.\" --The Wall Street Journal On January 28, 1742, a ramshackle vessel of patched-together wood and cloth washed up on the coast of Brazil. Inside were thirty emaciated men, barely alive, and they had an extraordinary tale to tell. They were survivors of His Majesty's Ship the Wager, a British vessel that had left England in 1740 on a secret mission during an imperial war with Spain. While the Wager had been chasing a Spanish treasure-filled galleon known as \"the prize of all the oceans,\" it had wrecked on a desolate island off the coast of Patagonia. The men, after being marooned for months and facing starvation, built the flimsy craft and sailed for more than a hundred days, traversing nearly 3,000 miles of storm-wracked seas. They were greeted as heroes. But then ... six months later, another, even more decrepit craft landed on the coast of Chile. This boat contained just three castaways, and they told a very different story. The thirty sailors who landed in Brazil were not heroes - they were mutineers. The first group responded with countercharges of their own, of a tyrannical and murderous senior officer and his henchmen. It became clear that while stranded on the island the crew had fallen into anarchy, with warring factions fighting for dominion over the barren wilderness. As accusations of treachery and murder flew, the Admiralty convened a court martial to determine who was telling the truth. The stakes were life-and-death--for whomever the court found guilty could hang. The Wager is a grand tale of human behavior at the extremes told by one of our greatest nonfiction writers. Grann's recreation of the hidden world on a British warship rivals the work of Patrick O'Brian, his portrayal of the castaways' desperate straits stands up to the classics of survival writing such as The Endurance, and his account of the court martial has the savvy of a Scott Turow thriller. As always with Grann's work, the incredible twists of the narrative hold the reader spellbound.",
+    "name": "The Wager",
+    "price": 25.0,
+    "pages": 352,
+    "image": "products/The_Wager_wZ8W4Fx.jpg",
+    "genre": [
+      10
+    ]
+  }
+},
+{
+  "model": "store.book",
+  "pk": 13,
+  "fields": {
+    "author": 3,
+    "publication_year": 1986,
+    "description": "The enchanting prequel to The Lord of the Rings, The Hobbit is the classic fantasy that inspired Peter Jackson's major motion picture trilogy When Thorin Oakenshield and his band of dwarves embark upon a dangerous quest to reclaim the hoard of gold stolen from them by the evil dragon Smaug, Gandalf the wizard suggests an unlikely accomplice: Bilbo Baggins, an unassuming Hobbit dwelling in peaceful Hobbiton. Along the way, the company faces trolls, goblins, giant spiders, and worse. But as they journey from the wonders of Rivendell to the terrors of Mirkwood and beyond, Bilbo will find that there is more to him than anyone--himself included--ever dreamed. Unexpected qualities of courage and cunning, and a love of adventure, propel Bilbo toward his great destiny . . . a destiny that waits in the dark caverns beneath the Misty Mountains, where a twisted creature known as Gollum jealously guards a precious magic ring.",
+    "name": "The Hobbit",
+    "price": 40.0,
+    "pages": 320,
+    "image": "products/The_Hobbit_3BFuCok.jpg",
+    "genre": [
+      2
+    ]
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 1,
+  "fields": {
+    "book": 1,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 3,
+  "fields": {
+    "book": 2,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 4,
+  "fields": {
+    "book": 2,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 5,
+  "fields": {
+    "book": 2,
+    "place": "C"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 6,
+  "fields": {
+    "book": 3,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 7,
+  "fields": {
+    "book": 3,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 8,
+  "fields": {
+    "book": 4,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 9,
+  "fields": {
+    "book": 4,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 10,
+  "fields": {
+    "book": 4,
+    "place": "C"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 11,
+  "fields": {
+    "book": 4,
+    "place": "D"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 12,
+  "fields": {
+    "book": 5,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 13,
+  "fields": {
+    "book": 5,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 14,
+  "fields": {
+    "book": 5,
+    "place": "C"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 15,
+  "fields": {
+    "book": 5,
+    "place": "D"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 16,
+  "fields": {
+    "book": 6,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 17,
+  "fields": {
+    "book": 6,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 18,
+  "fields": {
+    "book": 7,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 19,
+  "fields": {
+    "book": 7,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 20,
+  "fields": {
+    "book": 8,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 21,
+  "fields": {
+    "book": 9,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 22,
+  "fields": {
+    "book": 9,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 23,
+  "fields": {
+    "book": 10,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 24,
+  "fields": {
+    "book": 10,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 25,
+  "fields": {
+    "book": 11,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 26,
+  "fields": {
+    "book": 11,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 27,
+  "fields": {
+    "book": 12,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 28,
+  "fields": {
+    "book": 12,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 29,
+  "fields": {
+    "book": 13,
+    "place": "A"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 30,
+  "fields": {
+    "book": 13,
+    "place": "B"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 31,
+  "fields": {
+    "book": 13,
+    "place": "C"
+  }
+},
+{
+  "model": "store.bookitem",
+  "pk": 32,
+  "fields": {
+    "book": 13,
+    "place": "D"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 1,
+  "fields": {
+    "user_email": "admin@admin.com",
+    "status": 2,
+    "delivery_address": "Odessa, deribasivska st, 43",
+    "order_id_in_shop": 1
+  }
+},
+{
+  "model": "store.order",
+  "pk": 2,
+  "fields": {
+    "user_email": "admin@admin.com",
+    "status": 3,
+    "delivery_address": "Izmail, Portovaia st., 5",
+    "order_id_in_shop": 2
+  }
+},
+{
+  "model": "store.order",
+  "pk": 3,
+  "fields": {
+    "user_email": "admin@admin.com",
+    "status": 1,
+    "delivery_address": "Kyiv, Perekopskay st., 73A",
+    "order_id_in_shop": 3
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "book_store": 3,
+    "quantity": 1,
+    "book_item": [
+      6
+    ]
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "book_store": 2,
+    "quantity": 1,
+    "book_item": [
+      4
+    ]
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 1,
+    "book_store": 4,
+    "quantity": 1,
+    "book_item": [
+      8
+    ]
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 2,
+    "book_store": 1,
+    "quantity": 1,
+    "book_item": []
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 3,
+    "book_store": 10,
+    "quantity": 1,
+    "book_item": []
+  }
+}
+]

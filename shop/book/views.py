@@ -1,7 +1,7 @@
 from django.db.models import Count, Q
 from django.shortcuts import render, redirect
 from django.views import generic
-from book.models import Author, Book, Review
+from book.models import Author, Book
 from book.form import ReviewForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required

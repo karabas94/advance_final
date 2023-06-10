@@ -41,6 +41,7 @@ def send_new_orders_to_store():
     for order in new_orders:
         url = 'http://store:8001/orders/'
         API_KEY = os.environ.get('API_STORE_KEY')
+        # print(API_KEY)
         headers = {
             'Authorization': f'Api-Key {API_KEY}'
         }
