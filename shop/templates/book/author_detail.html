@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.last_name }}
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-9">
+        <h1>{{ object.first_name }}{{ object.last_name }}</h1>
+        <p>Bio: {{ object.bio }}</p>
+    </div>
+{% endblock %}
