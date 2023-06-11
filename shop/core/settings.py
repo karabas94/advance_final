@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,14 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     'shop'
 ]
+INTERNAL_IPS = [
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+]
 
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
 # Application definition
 
 INSTALLED_APPS = [
@@ -88,6 +96,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'book.context_processors.genres',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },

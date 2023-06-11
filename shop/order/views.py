@@ -74,7 +74,7 @@ def address_confirmation(request):
 
 @login_required
 def my_order(request):
-    orders = Order.objects.filter(user=request.user)
+    orders = Order.objects.filter(user=request.user).prefetch_related('orderitem_set__book')
     paginator = Paginator(orders, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

@@ -38,11 +38,12 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
+    queryset = Book.objects.select_related('author').all()
     paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        reviews = self.object.reviews.filter(is_reviewed=True)
+        reviews = self.object.reviews.filter(is_reviewed=True).select_related('author')
         paginator = Paginator(reviews, self.paginate_by)
         page_number = self.request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -50,7 +51,6 @@ class BookDetailView(generic.DetailView):
         return context
 
 
-# signal(send mail to admin)
 @login_required
 def add_review(request, pk):
     book = Book.objects.get(pk=pk)
