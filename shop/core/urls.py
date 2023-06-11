@@ -27,4 +27,9 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('books/', include('book.urls')),
     path('order/', include('order.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path('__debug__/', include('debug_toolbar.urls')),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

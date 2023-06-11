@@ -1,13 +1,16 @@
 # Bookshop
 
 ## Function of shop
-* Celery(periodically synch books from store to shop, orders from shop to store(used API) and back)
+* Celery
+  * synchronization book from store to shop
+  * synchronization order from shop to store(sent to API)
+  * synchronization order status from store to shop
 * Search books
 * Filtration by genre
 * Pagination 
 * Review of book
 * Tracking order
-* Annotation
+* DB queries optimized
 * Cart(used session)
 * Login/Registration
 * Feedback
@@ -24,7 +27,7 @@ POSTGRES_DB=
 API_STORE_KEY= --only for shop.env--
 ```
 2. Download docker and docker-compose
-
+   https://docs.docker.com/engine/install/
 3. Start docker compose and project
     ```bash
        docker-compose build
@@ -32,6 +35,8 @@ API_STORE_KEY= --only for shop.env--
     ```bash
        docker-compose up
       ```
+4. Create API_STORE_KEY in store admin panel and don't forget complete environment file
+
 ## Links
 * Shop
 ```
