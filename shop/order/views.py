@@ -5,6 +5,7 @@ from order.models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
 from order.tasks import send_order_confirmation_email
+from django.core.paginator import Paginator
 
 
 @login_required(login_url="/account/login")
@@ -69,3 +70,12 @@ def address_confirmation(request):
     else:
         form = OrderAddressForm()
     return render(request, 'order/order_address.html', {'form': form})
+
+
+@login_required
+def my_order(request):
+    orders = Order.objects.filter(user=request.user)
+    paginator = Paginator(orders, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'order/my_order.html', {'page_obj': page_obj, 'is_paginated': page_obj.has_other_pages()})

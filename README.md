@@ -6,6 +6,7 @@
 * Filtration by genre
 * Pagination 
 * Review of book
+* Tracking order
 * Annotation
 * Cart(used session)
 * Login/Registration
