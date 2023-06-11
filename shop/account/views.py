@@ -37,7 +37,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("book:book_list")
+                return redirect("account:profile")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
