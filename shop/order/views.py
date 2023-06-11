@@ -77,6 +77,7 @@ def address_confirmation(request):
             cart = Cart(request)
             cart.clear()
             send_order_confirmation_email.delay(order.user.email)
+            messages.info(request, f"Order requested.")
             return redirect('book:book_list')
     else:
         form = OrderAddressForm()
