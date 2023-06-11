@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    My order
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-9">
+        {% for order in page_obj %}
+            <div class="order-item mb-4 card shadow-sm text-center">
+                <h3 class="mb-3">Order ID: {{ order.id }}</h3>
+                <p class="mb-3">Status: {{ order.get_status_display }}</p>
+                <p class="mb-3">Delivery Address: {{ order.delivery_address }}</p>
+
+                <h4 class="mb-2">Ordered books:</h4>
+                <ul class="list-unstyled">
+                    {% for order_item in order.orderitem_set.all %}
+                        <li>{{ order_item.quantity }} x {{ order_item.book.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% empty %}
+            <p>No orders available.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

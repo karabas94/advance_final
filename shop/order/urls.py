@@ -1,9 +1,11 @@
 from django.urls import path
-from order.views import cart_add, item_clear, item_decrement, item_increment, cart_clear, cart_detail, address_confirmation
+from order.views import cart_add, item_clear, item_decrement, item_increment, cart_clear, cart_detail, \
+    address_confirmation, my_order
 
 app_name = 'order'
 urlpatterns = [
     path('cart/address_confirmation/', address_confirmation, name='address_confirmation'),
+    path('my_order/', my_order, name='my_order'),
 
     path('cart/add/<int:id>/', cart_add, name='cart_add'),
     path('cart/item_clear/<int:id>/', item_clear, name='item_clear'),
