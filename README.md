@@ -1,19 +1,22 @@
 # Bookshop
+This bookshop project is developed on Django, and it has two backends with different PostgreSQL databases. 
+The store is developed using the Django REST framework API.
 
-## Function of shop
+## Developed in the project:
 * Celery
   * synchronization book from store to shop
   * synchronization order from shop to store(sent to API)
   * synchronization order status from store to shop
-* Search books
-* Filtration by genre
-* Pagination 
-* Review of book
-* Tracking order
-* DB queries optimized
-* Cart(used session)
-* Login/Registration
-* Feedback
+* Book search
+* Genre filtering
+* Pagination
+* Book reviews
+* Order tracking 
+* Database optimization
+* Shopping cart (uses session)
+* Registration and login
+* Feedback form
+* Page caching for book pages
 * Mailhog receive email message
 
 ## How to start project

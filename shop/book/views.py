@@ -1,10 +1,12 @@
 from django.db.models import Count, Q
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views import generic
 from book.models import Author, Book
 from book.form import ReviewForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
 
 
 class AuthorListView(generic.ListView):
@@ -16,6 +18,7 @@ class AuthorDetailView(generic.DetailView):
     model = Author
 
 
+@method_decorator(cache_page(20), name='dispatch')
 class BookListView(generic.ListView):
     model = Book
     paginate_by = 9
@@ -36,6 +39,7 @@ class BookListView(generic.ListView):
         return queryset
 
 
+@method_decorator(cache_page(20), name='dispatch')
 class BookDetailView(generic.DetailView):
     model = Book
     queryset = Book.objects.select_related('author').all()
