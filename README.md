@@ -13,14 +13,15 @@ The store is developed using the Django REST framework API.
 * Book reviews
 * Order tracking 
 * Database optimization
-* Shopping cart (uses session)
+* Shopping cart (uses session, the user can't add more items than available quantity)
 * Registration and login
 * Feedback form
 * Page caching for book pages
 * Mailhog receive email message
 
 ## How to start project
-1. Create shop.env, store.env and complete environment
+1. Clone this repository.
+2. Create shop.env, store.env and complete environment
 ```
 DJANGO_SECRET_KEY=
 POSTGRES_PORT=
@@ -29,16 +30,24 @@ POSTGRES_PASSWORD=
 POSTGRES_DB=
 API_STORE_KEY= --only for shop.env--
 ```
-2. Download docker and docker-compose
+3. Download docker and docker-compose
    https://docs.docker.com/engine/install/
-3. Start docker compose and project
+4. Start docker compose and project
     ```bash
-       docker-compose build
+    docker-compose build
       ```
     ```bash
-       docker-compose up
+    docker-compose up
       ```
-4. Create API_STORE_KEY in store admin panel and don't forget complete environment file
+   or
+    ```bash
+    docker compose build
+      ```
+    ```bash
+    docker compose up
+      ```
+5. Create API_STORE_KEY in store admin panel and don't forget complete environment file.
+You may need to restart Celery for proper functioning after adding a API key.
 
 ## Links
 * Shop

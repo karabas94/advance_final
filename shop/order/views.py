@@ -12,7 +12,11 @@ from django.core.paginator import Paginator
 def cart_add(request, id):
     cart = Cart(request)
     product = Book.objects.get(id=id)
-    cart.add(product=product)
+
+    cart_items = request.session.get('cart', {})
+    if str(id) not in cart_items:
+        cart.add(product=product)
+
     return redirect("order:cart_detail")
 
 
@@ -28,7 +32,14 @@ def item_clear(request, id):
 def item_increment(request, id):
     cart = Cart(request)
     product = Book.objects.get(id=id)
-    cart.add(product=product)
+
+    cart_items = request.session.get('cart', {})
+    item = cart_items.get(str(id))
+    if item:
+        quantity = item.get('quantity', 0)
+        if quantity < product.quantity:
+            cart.add(product=product)
+
     return redirect("order:cart_detail")
 
 
