@@ -55,6 +55,7 @@ class BookDetailView(generic.DetailView):
         return context
 
 
+# signal(send mail to admin)
 @login_required
 def add_review(request, pk):
     book = Book.objects.get(pk=pk)
