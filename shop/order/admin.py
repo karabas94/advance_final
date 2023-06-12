@@ -10,7 +10,7 @@ class OrderItemInline(admin.StackedInline):
 @admin.register(Order)
 class OrderModelAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
-    list_display = ['user', 'status', 'delivery_address']
+    list_display = ['user', 'status', 'delivery_address', 'braintree_id']
     list_filter = ['status']
     list_per_page = 50
     search_fields = ['user']
