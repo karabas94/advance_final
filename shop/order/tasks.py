@@ -77,10 +77,10 @@ def update_order_status_to_shop():
 
         try:
             order = Order.objects.get(id=order_id_in_shop)
-            if status == 3:
+            if status == 3 and order.status != 3:
                 order.status = 3
                 order.save()
-            elif status == 4:
+            elif status == 4 and order.status != 4:
                 order.status = 4
                 order.save()
         except Order.DoesNotExist:
